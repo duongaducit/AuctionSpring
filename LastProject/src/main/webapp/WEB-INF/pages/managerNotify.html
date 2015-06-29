@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Auction</title>
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/resources/css/style.css}" />
+<script type="text/javascript" th:src="@{/resources/js/add.js}"></script>
+
+<!-- -->
+
+<script type="text/javascript">
+var target_date = new Date('Jan, 31, 2014').getTime();
+
+//variables for time units
+var days, hours, minutes, seconds;
+
+//get tag element
+document.getElementById('countdown');
+
+//update the tag with id "countdown" every 1 second
+setInterval(function () {
+
+ // find the amount of "seconds" between now and target
+ var current_date = new Date().getTime();
+ var seconds_left = (target_date - current_date) / 1000;
+
+ // do some time calculations
+ days = parseInt(seconds_left / 86400);
+ seconds_left = seconds_left % 86400;
+  
+ hours = parseInt(seconds_left / 3600);
+ seconds_left = seconds_left % 3600;
+  
+ minutes = parseInt(seconds_left / 60);
+ seconds = parseInt(seconds_left % 60);
+  
+ // format countdown string + set tag value
+ document.getElementById('countdown').innerHTML = '<span class="days">' + days +  ' <b>Days</b></span> <span class="hours">' + hours + ' <b>Hours</b></span> <span class="minutes">'
+ + minutes + ' <b>Minutes</b></span> <span class="seconds">' + seconds + ' <b>Seconds</b></span>';  
+
+}, 1000);
+</script>
+<!-- -->
+</head>
+<body onload="test()">
+	<!-- header -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img th:src="@{/resources/img/logo-1.jpg}"
+					src="../../../resources/img/logo-1.jpg" width="50" height="50"></img>
+				<a class="navbar-brand" th:href="@{/}">Auction</a>
+			</div>
+			<ul class="nav navbar-nav navbar-center">
+				<li><a th:href="@{|/${username}/managerUser|}">Manager User</a></li>
+				<li><a th:href="@{|/${username}/managerAuction|}">Manager
+						Auction</a></li>
+				<li><a th:href="@{|/${username}/managerNotify|}">Notify</a></li>
+			</ul>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							<label th:text="${username}"></label></a></li>
+					<li><a th:href="@{/logout}"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Main here -->
+	<div class="panel panel-default">
+		<div class="panel-heading">Notyfi</div>
+		<div class="panel-body">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<div id="countdown"></div>
+				<br />
+				
+				<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+	</div>
+	<!-- Main end -->
+</body>
+</html>

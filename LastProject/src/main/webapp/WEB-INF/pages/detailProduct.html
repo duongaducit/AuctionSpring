@@ -1,0 +1,121 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Auction</title>
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/resources/css/style.css}" />
+<script type="text/javascript" th:src="@{/resources/js/add.js}"></script>
+</head>
+<body>
+	<!-- header -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img th:src="@{/resources/img/logo-1.jpg}"
+					src="../../../resources/img/logo-1.jpg" width="50" height="50"></img>
+				<a class="navbar-brand" th:href="@{/}">Auction</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a th:href="@{/signup}"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a th:href="@{/login}"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- Menu 1 -->
+	<div class="row" style="background-color: black">
+		<div class="col-sm-1"></div>
+		<ul class="nav nav-pills">
+			<li><a th:href="@{/auction}">AUCTIONS</a></li>
+			<li><a th:href="@{/juststop}">JUST STOP</a></li>
+			<li><a th:href="@{/wait}">WAITTING</a></li>
+		</ul>
+	</div>
+	<!-- Menu 2 -->
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<ul class="nav nav-pills">
+			<li><a th:href="@{|/${status}/all|}">All</a></li>
+			<li><a th:href="@{|/${status}/laptop|}">Company</a></li>
+			<li><a th:href="@{|/${status}/phone|}">Universiter</a></li>
+			<li><a th:href="@{|/${status}/mp3|}">HightSchool</a></li>
+			<li><a th:href="@{|/${status}/tablet|}">School</a></li>
+			<li class="formsearch">
+				<form action="#" th:action="@{/search}" method="post"
+					class="form-inline">
+					<input type="text" name="keyword" /> <input type="submit"
+						value="Search" class="btn btn-success btn-sm" />
+				</form>
+			</li>
+		</ul>
+	</div>
+	<!-- main here -->
+	<div class="panel panel-default">
+		<div class="panel-heading"> ANOTHER WIFE</div>
+		<div class="panel-body">
+			<div class = "col-sm-4"><img
+								th:src="@{/resources/img/IMG_0065.jpg}"
+								src="../../../resources/img/IMG_0065.jpg" height="300"
+								width="250"></img> </div>
+			<div class = "col-sm-4">
+				<p>ID:        .</p>
+				<p>Seller: <a th:href="@{/detailUser}">duongaduc</a> </p>
+				<p>Category: </p>
+				<p>Ratting: 10</p>
+				<p>Begin: </p>
+				<p>End: </p>
+				<p>Time:</p>
+				<p>Money:</p>
+				<p>user buyer</p>
+				<p><input type = "text" value="0" disabled="disabled" /> <button>BID</button>  </p>
+			</div>		
+			<div class = "col-sm-4">
+				<table>
+				<tr>
+					<th>Money</th>
+					<th>User</th>
+					<th>Time</th>
+				</tr>
+				<tr>
+					<td>0</td>
+					<td><a href = "#">nguyendinhhoa</a> </td>
+					<td>11:25</td>
+				</tr>
+				<tr>
+					<td>0</td>
+					<td><a href = "#">duongaduc</a> </td>
+					<td>10:00</td>
+				</tr>
+				<tr>
+					<td>0</td>
+					<td><a href = "#">tranhthanhtue</a> </td>
+					<td>9:30</td>
+				</tr>
+				<tr>
+					<td>0</td>
+					<td><a href = "#">vuvanhai</a> </td>
+					<td>8:00</td>
+				</tr>
+				</table>
+			</div>			
+		</div>
+		<div class = "panel-footer">
+			<h2>Detail</h2>
+			<p>No description</p>
+		</div>
+	</div>
+
+	<!-- main end -->
+</body>
+</html>

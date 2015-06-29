@@ -1,0 +1,183 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Auction</title>
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/resources/css/style.css}" />
+<script type="text/javascript" th:src="@{/resources/js/add.js}"></script>
+</head>
+<body>
+	<!-- header -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img th:src="@{/resources/img/logo-1.jpg}"
+					src="../../../resources/img/logo-1.jpg" width="50" height="50"></img>
+				<a class="navbar-brand" th:href="@{/}">Auction</a>
+			</div>
+			<ul class="nav navbar-nav navbar-center">
+				<li><a th:href="@{|/${userLogin.username}/managerUser|}">Manager User</a></li>
+				<li><a th:href="@{|/${userLogin.username}/managerAuction|}">Manager
+						Auction</a></li>
+				<li><a th:href="@{|/${userLogin.username}/managerNotify|}">Notify</a></li>
+			</ul>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							<label th:text="${uuserLogin.username}"></label></a></li>
+					<li><a th:href="@{/logout}"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- main here -->
+	<div class="panel panel-default">
+		<div class="panel-heading">User
+		<form action="#" th:action="@{/search}" method="post"
+					class="form-inline">
+					<input type="text" name="keyword" /> <input type="submit"
+						value="Search" class="btn btn-success btn-sm" />
+	    </form>
+		</div>
+		<div class="panel-body">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-8">
+				<table class="table table-bordered">
+
+					<tr style="height: 250px">
+						<td style="width: 25%"><a th:href="@{/detailUser}"> <img
+								th:src="@{/resources/img/IMG_0065.jpg}"
+								src="../../../resources/img/IMG_0065.jpg" height="200"
+								width="90%"></img>
+								<p>User name</p>
+								<p>Status</p>
+								<p>Rate</p>
+						</a></td>
+						<td style="width: 25%"><a th:href="@{/detailUser}"> <img
+								th:src="@{/resources/img/IMG_0065.jpg}"
+								src="../../../resources/img/IMG_0065.jpg" height="200"
+								width="90%"></img>
+								<p>User name</p>
+								<p>Status</p>
+								<p>Rate</p>
+						</a></td>
+						<td style="width: 25%"><a th:href="@{/detailUser}"> <img
+								th:src="@{/resources/img/IMG_0065.jpg}"
+								src="../../../resources/img/IMG_0065.jpg" height="200"
+								width="90%"></img>
+								<p>User name</p>
+								<p>Status</p>
+								<p>Rate</p>
+						</a></td>
+						<td style="width: 25%"><a th:href="@{/detailUser}"> <img
+								th:src="@{/resources/img/IMG_0065.jpg}"
+								src="../../../resources/img/IMG_0065.jpg" height="200"
+								width="90%"></img>
+								<p>User name</p>
+								<p>Status</p>
+								<p>Rate</p>
+						</a></td>
+					</tr>
+				</table>
+				<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Product
+		<form action="#" th:action="@{/search}" method="post"
+					class="form-inline">
+					<input type="text" name="keyword" /> <input type="submit"
+						value="Search" class="btn btn-success btn-sm" />
+				</form>
+		</div>
+		<div class="panel-body">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-8">
+				<table class="table table-bordered">
+
+					<tr style="height: 400px">
+						<td style="width: 25%"><a th:href="@{/detailProduct}"> <img
+								th:src="@{/resources/img/IMG_0065.jpg}"
+								src="../../../resources/img/IMG_0065.jpg" height="200"
+								width="90%"></img>
+								<p>ANOTHER WIFE</p> <a th:href="@{/detailUser}">duongaduc</a>
+								<p>Money: Free</p>
+								<p>
+									BUYER: <a th:href="@{/detailUser}">duongaduc</a>
+								</p>
+								<p>INC: 0 TIME: 22:30</p>
+								<button>BID</button>
+						</a></td>
+						<td style="width: 25%"><a th:href="@{/detailProduct}"> <img
+								th:src="@{/resources/img/IMG_0066.jpg}"
+								src="../../../resources/img/IMG_0066.jpg" height="200"
+								width="90%"></img>
+								<p>ANOTHER WIFE</p> <a th:href="@{/detailUser}">duongaduc</a>
+								<p>Money: Free</p>
+								<p>
+									BUYER: <a th:href="@{/detailUser}">duongaduc</a>
+								</p>
+								<p>INC: 0 TIME: 22:30</p>
+								<button>BID</button>
+						</a></td>
+						<td style="width: 25%"><a th:href="@{/detailProduct}"> <img
+								th:src="@{/resources/img/IMG_0067.jpg}"
+								src="../../../resources/img/IMG_0067.jpg" height="200"
+								width="90%"></img>
+								<p>ANOTHER WIFE</p> <a th:href="@{/detailUser}">duongaduc</a>
+								<p>Money: Free</p>
+								<p>
+									BUYER: <a th:href="@{/detailUser}">duongaduc</a>
+								</p>
+								<p>INC: 0 TIME: 22:30</p>
+								<button>BID</button>
+						</a></td>
+						<td style="width: 25%"><a th:href="@{/detailProduct}"> <img
+								th:src="@{/resources/img/IMG_0068.jpg}"
+								src="../../../resources/img/IMG_0068.jpg" height="200"
+								width="90%"></img>
+								<p>ANOTHER WIFE</p> <a th:href="@{/detailUser}">duongaduc</a>
+								<p>Money: Free</p>
+								<p>
+									BUYER: <a th:href="@{/detailUser}">duongaduc</a>
+								</p>
+								<p>INC: 0 TIME: 22:30</p>
+								<button>BID</button>
+						</a></td>
+					</tr>
+				</table>
+				<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+	<!-- main end -->
+</body>
+</html>

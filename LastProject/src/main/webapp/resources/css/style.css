@@ -1,0 +1,14 @@
+li.formsearch {
+	float: right;
+	margin-right: 10%;
+}
+ul.pagination{
+	float: left;
+	margin-top: 0px;
+	margin-left: 5%;
+}
+
+form.form-inline{
+	float: right;
+	margin-right: 10%;
+}

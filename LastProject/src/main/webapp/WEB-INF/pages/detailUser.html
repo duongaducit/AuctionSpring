@@ -1,0 +1,143 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Auction</title>
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/resources/css/style.css}" />
+<script type="text/javascript" th:src="@{/resources/js/add.js}"></script>
+</head>
+<body>
+	<!-- header -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img th:src="@{/resources/img/logo-1.jpg}"
+					src="../../../resources/img/logo-1.jpg" width="50" height="50"></img>
+				<a class="navbar-brand" th:href="@{/}">Auction</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a th:href="@{/signup}"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a th:href="@{/login}"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- Menu 1 -->
+	<div class="row" style="background-color: black">
+		<div class="col-sm-1"></div>
+		<ul class="nav nav-pills">
+			<li><a th:href="@{/auction}">AUCTIONS</a></li>
+			<li><a th:href="@{/juststop}">JUST STOP</a></li>
+			<li><a th:href="@{/wait}">WAITTING</a></li>
+		</ul>
+	</div>
+	<!-- Menu 2 -->
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<ul class="nav nav-pills">
+			<li><a th:href="@{|/${status}/all|}">All</a></li>
+			<li><a th:href="@{|/${status}/laptop|}">Company</a></li>
+			<li><a th:href="@{|/${status}/phone|}">Universiter</a></li>
+			<li><a th:href="@{|/${status}/mp3|}">HightSchool</a></li>
+			<li><a th:href="@{|/${status}/tablet|}">School</a></li>
+			<li class="formsearch">
+				<form action="#" th:action="@{/search}" method="post"
+					class="form-inline">
+					<input type="text" name="keyword" /> <input type="submit"
+						value="Search" class="btn btn-success btn-sm" />
+				</form>
+			</li>
+		</ul>
+	</div>
+	<!-- main here -->
+	<div class="panel panel-default">
+		<div class="panel-heading">USER NAME</div>
+		<div class="panel-body">
+			<div class="col-sm-4">
+				<img th:src="@{/resources/img/IMG_0583.jpg}"
+					src="../../../resources/img/IMG_0583.jpg" width="150" height="200"></img>
+			</div>
+			<div class="col-sm-4">
+				<p>Full name: </p>
+				<p>Email:</p>
+				<p>Address:</p>
+				<p>Rate </p>
+				<p>Bid:</p>
+				<p>Win:</p>
+			</div>
+			<div class="col-sm-4">
+				<p>Description:</p>
+				<p>No thing</p>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="panel-heading">Product</div>
+			<!--  -->
+			<div class="panel-body">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-8">
+					<table class="table table-bordered">
+
+						<tr style="height: 300px">
+							<td style="width: 25%"><a th:href="@{/detailProduct}"> <img
+									th:src="@{/resources/img/IMG_0065.jpg}"
+									src="../../../resources/img/IMG_0065.jpg" height="200"
+									width="90%"></img>
+									<p>ANOTHER WIFE</p>
+									<p>Money: Free</p>
+									<p>TIME: 22:30</p>
+							</a></td>
+							<td style="width: 25%"><a th:href="@{/detailProduct}"> <img
+									th:src="@{/resources/img/IMG_0314.jpg}"
+									src="../../../resources/img/IMG_0314.jpg" height="200"
+									width="90%"></img>
+									<p>ANOTHER WIFE</p> 
+									<p>Money: Free</p>
+									<p>TIME: 22:30</p>
+							</a></td>
+							<td style="width: 25%"><a th:href="@{/detailProduct}"> <img
+									th:src="@{/resources/img/IMG_0368.jpg}"
+									src="../../../resources/img/IMG_0368.jpg" height="200"
+									width="90%"></img>
+									<p>ANOTHER WIFE</p>
+									<p>Money: Free</p>
+									<p>TIME: 22:30</p>
+							</a></td>
+							<td style="width: 25%"><a th:href="@{/detailProduct}"> <img
+									th:src="@{/resources/img/IMG_0483.jpg}"
+									src="../../../resources/img/IMG_0483.jpg" height="200"
+									width="90%"></img>
+									<p>ANOTHER WIFE</p>
+									<p>Money: Free</p>
+									<p>TIME: 22:30</p>
+							</a></td>
+						</tr>
+					</table>
+					<ul class="pagination">
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-1"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- main end -->
+</body>
+</html>

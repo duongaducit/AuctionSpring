@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Auction</title>
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/resources/css/style.css}" />
+<script type="text/javascript" th:src="@{/resources/js/add.js}"></script>
+<script type="text/javascript"
+	th:src="@{/resources/js/jquery.countdown.min.js}"></script>
+</head>
+<body>
+	<!-- header -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img th:src="@{/resources/img/logo-1.jpg}"
+					src="../../../resources/img/logo-1.jpg" width="50" height="50"></img>
+				<a class="navbar-brand" th:href="@{/}">Auction</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a th:href="@{/signup}"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a th:href="@{/login}"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- Menu 1 -->
+	<div class="row" style="background-color: black">
+		<div class="col-sm-1"></div>
+		<ul class="nav nav-pills">
+			<li><a th:href="@{/auction}">AUCTIONS</a></li>
+			<li><a th:href="@{/juststop}">JUST STOP</a></li>
+			<li><a th:href="@{/wait}">WAITTING</a></li>
+		</ul>
+	</div>
+	<!-- Menu 2 -->
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<ul class="pagination" th:each="category : ${listCateogry}">
+			<li><a th:href="@{|/${status}/${category.idCategory}|}"><lable th:text = "${category.nameCategory}"></lable></a></li>
+		</ul>
+	</div>
+	<!-- main here -->
+	<div class="panel panel-default">
+		<div class="panel-heading">All product</div>
+		<div class="panel-body">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-8">
+				<table class="table table-default">
+					<tr style="height: 400px" th:each = "product : ${listProduct}">
+						<td style="width: 25%"><a th:href="@{'/detailProduct?idProduct=' + ${product.idProduct}}"> <img
+								th:src="@{|image/${product.pathImg}|}" height="200"
+								width="200"></img></a>
+								<p th:text = "${product.nameProduct}"></p>
+								<p th:text = "|$ ${product.minBid}|" data-toggle="tooltip" data-placement="bottom" th:attr = "title = ${product.user.username}"></p>
+								<p>
+									<label style="color: green"
+										th:attr = "data-countdown=${product.endBid}"></label>
+								</p>
+								<button id = "countdown">BID</button>
+						</td>
+						</tr>
+				</table>
+				<form action="#" th:action="@{/search}" method="post"
+					class="form-inline">
+					<input type="text" name="keyword" /> <input type="submit"
+						value="Search" class="btn btn-success btn-sm" />
+				</form>
+				<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+
+	<!-- main end -->
+	<script type="text/javascript">
+		$('[data-countdown]').each(function() {
+			var $this = $(this), finalDate = $(this).data('countdown');
+			$this.countdown(finalDate, function(event) {
+				$this.html(event.strftime('%D days %H:%M:%S'));
+			}).on('finish.countdown', function(event) {
+				$this.html("JustStop");
+				$('button#countdown').addClass('disabled');
+			});
+		});
+	</script>
+</body>
+</html>

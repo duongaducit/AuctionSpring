@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Auction</title>
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/resources/css/style.css}" />
+<script type="text/javascript" th:src="@{/resources/js/add.js}"></script>
+</head>
+<body>
+	<!-- header -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img th:src="@{/resources/img/logo-1.jpg}"
+          			src="../../../resources/img/logo-1.jpg" width="50" height="50"></img>
+				<a class="navbar-brand" th:href="@{/}">Auction</a>
+			</div>	
+				<ul class="nav navbar-nav navbar-center">
+					<li><a th:href="@{|/${user.username}/managerUser|}">Manager User</a></li>
+					<li><a th:href="@{|/${user.username}/managerAuction|}">Manager Auction</a></li>
+					<li><a th:href="@{|/${user.username}/managerNotify|}">Notify</a></li>
+				</ul>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							<label th:text="${user.username}"></label></a></li>
+					<li><a th:href="@{/logout}"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Main here -->
+	<div class = "panel panel-default">
+		<form action="#" method="post" enctype="multipart/form-data" th:action = "@{|/${user.username}/save|}">
+		<div class = "panel-heading"><span th:text = "${user.username}"></span></div>
+		<div class = "panel-body">
+			<div class="col-sm-4">
+				<img th:src="@{|/image/${user.pathImg}|}" width="200" height="200"></img>
+				<div class="form-group">
+					<label for="img">Choose img:</label> <input type="file" name="file"
+						id="img" th:value = "${user.pathImg}"/>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label for="name">Full Name</label>
+					<input name="fullName" th:value = "${user.fullName}" class="form-control" id="name"/>
+				</div>
+				<div class="form-group">
+					<label for="emailUser">Email</label>
+					<input name="emailUser" th:value = "${user.emailUser}" class="form-control" id="emailUser"/>
+				</div>
+				<div class="form-group">
+					<label for="addressUser">Address</label>
+					<input name="addressUser" th:value = "${user.addressUser}" class="form-control" id="addressUser"/>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input name="password" th:value = "${user.password}" class="form-control" id="password"/>
+				</div>
+				<div class = "form-group">
+					<input name="rateUser" th:value = "${user.rateUser}" class="form-control" type = "hidden"/>
+					<input name="roleUser" th:value = "${user.roleUser}" class="form-control" type = "hidden"/>
+					<input name="statusUser" th:value = "${user.statusUser}" class="form-control" type = "hidden"/>
+					<input name="particiBid" th:value = "${user.particiBid}" class="form-control" type = "hidden"/>
+					<input name="winBid" th:value = "${user.winBid}" class="form-control" type = "hidden"/>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label for="description">Description</label>
+					<input name="description" th:value = "${user.description}" class="form-control" id="description"/>
+				</div>
+			</div>
+		</div>
+		<div class = "panel-footer"> <input type="submit" class="btn btn-success" value="Save"/> </div>
+		</form>
+	</div>
+	<!-- Main end -->
+</body>
+</html>
